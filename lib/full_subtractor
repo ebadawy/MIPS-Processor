@@ -1,0 +1,31 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x142daa0 .scope module, "full_adder" "full_adder" 2 1;
+ .timescale 0 0;
+L_0x1460310 .functor XOR 1, C4<z>, C4<z>, C4<0>, C4<0>;
+L_0x1460420 .functor XOR 1, L_0x1460310, C4<z>, C4<0>, C4<0>;
+L_0x14604b0 .functor NOT 1, L_0x1460310, C4<0>, C4<0>, C4<0>;
+L_0x1460510 .functor AND 1, L_0x14604b0, C4<z>, C4<1>, C4<1>;
+L_0x1460640 .functor NOT 1, C4<z>, C4<0>, C4<0>, C4<0>;
+L_0x14606f0 .functor AND 1, L_0x1460640, C4<z>, C4<1>, C4<1>;
+L_0x14607f0 .functor OR 1, L_0x14606f0, L_0x1460510, C4<0>, C4<0>;
+v0x142db90_0 .net "Bar_out", 0 0, L_0x14607f0; 1 drivers
+v0x145fbf0_0 .net "Bor_in", 0 0, C4<z>; 0 drivers
+v0x145fc90_0 .net "Bor_out", 0 0, C4<z>; 0 drivers
+v0x145fd30_0 .net "a", 0 0, C4<z>; 0 drivers
+v0x145fde0_0 .net "b", 0 0, C4<z>; 0 drivers
+v0x145fe80_0 .net "b_bar", 0 0, L_0x1460640; 1 drivers
+v0x145ff60_0 .net "d", 0 0, L_0x1460420; 1 drivers
+v0x145ffe0_0 .net "int1", 0 0, L_0x1460310; 1 drivers
+v0x14600d0_0 .net "int2", 0 0, L_0x14604b0; 1 drivers
+v0x1460170_0 .net "int3", 0 0, L_0x1460510; 1 drivers
+v0x1460270_0 .net "int4", 0 0, L_0x14606f0; 1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "full_subtractor.v";
