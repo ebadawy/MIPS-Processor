@@ -1,0 +1,107 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x146ff20 .scope module, "test" "test" 2 3;
+ .timescale 0 0;
+v0x148dce0_0 .var "i0", 0 0;
+v0x148dd60_0 .var "i1", 0 0;
+v0x148de10_0 .var "i2", 0 0;
+v0x148dec0_0 .var "i3", 0 0;
+v0x148dfa0_0 .var "i4", 0 0;
+v0x148e050_0 .var "i5", 0 0;
+v0x148e0d0_0 .var "i6", 0 0;
+v0x148e180_0 .var "i7", 0 0;
+v0x148e230_0 .var "s0", 0 0;
+v0x148e2e0_0 .var "s1", 0 0;
+v0x148e360_0 .var "s2", 0 0;
+v0x148e410_0 .net "z", 0 0, L_0x148f680; 1 drivers
+S_0x1470010 .scope module, "mux" "mux_8to1" 2 9, 3 1, S_0x146ff20;
+ .timescale 0 0;
+L_0x148ced0 .functor NOT 1, v0x148e230_0, C4<0>, C4<0>, C4<0>;
+L_0x148e4c0 .functor NOT 1, v0x148e2e0_0, C4<0>, C4<0>, C4<0>;
+L_0x148e570 .functor NOT 1, v0x148e360_0, C4<0>, C4<0>, C4<0>;
+L_0x148e620 .functor AND 1, v0x148dce0_0, L_0x148e570, L_0x148e4c0, L_0x148ced0;
+L_0x148e7f0 .functor AND 1, v0x148dd60_0, L_0x148e570, L_0x148e4c0, v0x148e230_0;
+L_0x148e8a0 .functor AND 1, v0x148de10_0, L_0x148e570, v0x148e2e0_0, L_0x148ced0;
+L_0x148e9e0 .functor AND 1, v0x148dec0_0, L_0x148e570, v0x148e2e0_0, v0x148e230_0;
+L_0x148eb60 .functor AND 1, v0x148dfa0_0, v0x148e360_0, L_0x148e4c0, L_0x148ced0;
+L_0x148ed10 .functor AND 1, v0x148e050_0, v0x148e360_0, L_0x148e4c0, v0x148e230_0;
+L_0x148ee30 .functor AND 1, v0x148e0d0_0, v0x148e360_0, v0x148e2e0_0, L_0x148ced0;
+L_0x148ef20 .functor AND 1, v0x148e180_0, v0x148e360_0, v0x148e2e0_0, v0x148e230_0;
+L_0x148efb0 .functor OR 1, L_0x148e620, L_0x148e7f0, C4<0>, C4<0>;
+L_0x148eec0 .functor OR 1, L_0x148e8a0, L_0x148e9e0, C4<0>, C4<0>;
+L_0x148f170 .functor OR 1, L_0x148eb60, L_0x148ed10, C4<0>, C4<0>;
+L_0x148f2f0 .functor OR 1, L_0x148ee30, L_0x148ef20, C4<0>, C4<0>;
+L_0x148f3f0 .functor OR 1, L_0x148efb0, L_0x148eec0, C4<0>, C4<0>;
+L_0x148f580 .functor OR 1, L_0x148f170, L_0x148f2f0, C4<0>, C4<0>;
+L_0x148f680 .functor OR 1, L_0x148f3f0, L_0x148f580, C4<0>, C4<0>;
+v0x1461500_0 .net "i0", 0 0, v0x148dce0_0; 1 drivers
+v0x148c8b0_0 .net "i1", 0 0, v0x148dd60_0; 1 drivers
+v0x148c950_0 .net "i2", 0 0, v0x148de10_0; 1 drivers
+v0x148c9f0_0 .net "i3", 0 0, v0x148dec0_0; 1 drivers
+v0x148caa0_0 .net "i4", 0 0, v0x148dfa0_0; 1 drivers
+v0x148cb40_0 .net "i5", 0 0, v0x148e050_0; 1 drivers
+v0x148cc20_0 .net "i6", 0 0, v0x148e0d0_0; 1 drivers
+v0x148ccc0_0 .net "i7", 0 0, v0x148e180_0; 1 drivers
+v0x148cdb0_0 .net "int0", 0 0, L_0x148e620; 1 drivers
+v0x148ce50_0 .net "int1", 0 0, L_0x148e7f0; 1 drivers
+v0x148cf50_0 .net "int10", 0 0, L_0x148f170; 1 drivers
+v0x148cff0_0 .net "int11", 0 0, L_0x148f2f0; 1 drivers
+v0x148d100_0 .net "int12", 0 0, L_0x148f3f0; 1 drivers
+v0x148d1a0_0 .net "int13", 0 0, L_0x148f580; 1 drivers
+v0x148d2c0_0 .net "int2", 0 0, L_0x148e8a0; 1 drivers
+v0x148d360_0 .net "int3", 0 0, L_0x148e9e0; 1 drivers
+v0x148d220_0 .net "int4", 0 0, L_0x148eb60; 1 drivers
+v0x148d4b0_0 .net "int5", 0 0, L_0x148ed10; 1 drivers
+v0x148d5d0_0 .net "int6", 0 0, L_0x148ee30; 1 drivers
+v0x148d650_0 .net "int7", 0 0, L_0x148ef20; 1 drivers
+v0x148d530_0 .net "int8", 0 0, L_0x148efb0; 1 drivers
+v0x148d780_0 .net "int9", 0 0, L_0x148eec0; 1 drivers
+v0x148d6d0_0 .net "s0", 0 0, v0x148e230_0; 1 drivers
+v0x148d8c0_0 .net "s0_bar", 0 0, L_0x148ced0; 1 drivers
+v0x148d820_0 .net "s1", 0 0, v0x148e2e0_0; 1 drivers
+v0x148da10_0 .net "s1_bar", 0 0, L_0x148e4c0; 1 drivers
+v0x148d960_0 .net "s2", 0 0, v0x148e360_0; 1 drivers
+v0x148db70_0 .net "s2_bar", 0 0, L_0x148e570; 1 drivers
+v0x148dab0_0 .alias "z", 0 0, v0x148e410_0;
+    .scope S_0x146ff20;
+T_0 ;
+    %vpi_call 2 33 "$monitor", $time, ": %b  %b  %b  %b  %b  %b  %b  %b | %b  %b  %b | %b", v0x148e180_0, v0x148e0d0_0, v0x148e050_0, v0x148dfa0_0, v0x148dec0_0, v0x148de10_0, v0x148dd60_0, v0x148dce0_0, v0x148e360_0, v0x148e2e0_0, v0x148e230_0, v0x148e410_0;
+    %delay 5, 0;
+    %set/v v0x148e180_0, 0, 1;
+    %set/v v0x148e0d0_0, 0, 1;
+    %set/v v0x148e050_0, 0, 1;
+    %set/v v0x148dfa0_0, 0, 1;
+    %set/v v0x148dec0_0, 0, 1;
+    %set/v v0x148de10_0, 0, 1;
+    %set/v v0x148dd60_0, 0, 1;
+    %set/v v0x148dce0_0, 0, 1;
+    %set/v v0x148e360_0, 0, 1;
+    %set/v v0x148e2e0_0, 0, 1;
+    %set/v v0x148e230_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0x148dfa0_0, 1, 1;
+    %set/v v0x148e050_0, 1, 1;
+    %set/v v0x148de10_0, 1, 1;
+    %set/v v0x148e2e0_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x148e230_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x148e360_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x148e180_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0x148e2e0_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0x148e050_0, 1, 1;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux_8to1_test.v";
+    "./../lib/mux_8to1.v";
