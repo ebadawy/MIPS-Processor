@@ -1,9 +1,8 @@
 `include "../lib/full_subtractor.v"
 module sub (
   output Bor_out,
-  output [31:0] d,
-  input [31:0] a, b,
-  input Bor_in
+  output signed [31:0] d,
+  input  signed [31:0] a, b
   );
 wire [30:0] bor;
 
