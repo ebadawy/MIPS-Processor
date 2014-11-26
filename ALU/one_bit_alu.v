@@ -1,42 +1,40 @@
-`include "../lib/full_adder.v"
 `include "../lib/mux_16to1.v"
+`include "../lib/full_adder.v"
+`include "../lib/full_subtractor.v"
 
 module one_bit_alu (
   input  [3:0] op,
   input  a, b, cin, less, sub,
-  output r, cout, set
+  output r, cout, bout, set
   );
  
-wire and_op, or_op, xor_op, nor_op, add_op, slt_op, xor_b;
+//wire andOP, int1, xorOP, norOP, addOP, sltOP, xorB;
+wire int0, int1, int2, int3, addOP, subOP, addOP_cout, subOP_bout;
+and (int0 , a, b);
+or  (int1  , a, b);
+xor (int2 , a, b);
+nor (int3, a, b);
 
-and (and_op, a, b);
-or  (or_op, a, b);
-xor (xor_op, a, b);
-nor (xnor_op, a, b);
+xor (xorB, b, sub);
 
-full_adder add     (.sum(and_op), .a(a), .b(b    ), .cin(cin), .cout(cout));
-full_adder subtract(.sum(sub_op), .a(a), .b(xor_b), .cin(cin), .cout(cout));
+full_adder       add     (.sum(addOP), .a(a), .b(b), .cin(cin), .cout(addOP_cout));
+full_subtractor  subtract(.d  (subOP), .a(b), .b(a), .Bor_in(cin), .Bor_out(subOP_bout));
+or (set, subOP, 1'b1);
 
-or (set, sub_op, 1'b1);
-wire rr;
-mux_16to1 mux(
+mux_16to1 mux0(
   .s  (op    ),
-  .i0 (and_op),
-  .i1 (or_op ),
-  .i2 (add_op),
-  .i6 (sub_op),
+  .i0 (int0  ),
+  .i1 (int1 ),
+  .i2 (addOP),
+  .i6 (subOP),
   .i7 (less  ),
-  .i12(nor_op),
-  .i3 (1'b0  ),
-  .i4 (1'b0  ),
-  .i5 (1'b0  ),
-  .i8 (1'b0  ),
-  .i9 (1'b0  ),
-  .i10(1'b0  ),
-  .i11(1'b0  ),
-  .i13(1'b0  ),
-  .i14(1'b0  ),
-  .i15(1'b0  ),
+  .i12(int3),
   .z  (r    ));
 
+mux_16to1 mux1(
+  .s(op),
+  .i2(addOP_cout),
+  .i6(subOP_bout),
+  .z(cout));
 endmodule
+
