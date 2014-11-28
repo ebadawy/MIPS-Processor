@@ -19,7 +19,8 @@ xor (xorB, b, sub);
 
 full_adder       add     (.sum(addOP), .a(a), .b(b), .cin(cin), .cout(addOP_cout));
 full_subtractor  subtract(.d  (subOP), .a(b), .b(a), .Bor_in(cin), .Bor_out(subOP_bout));
-or (set, subOP, 1'b1);
+
+buf(set, subOP);
 
 mux_16to1 mux0(
   .s  (op    ),
@@ -35,6 +36,7 @@ mux_16to1 mux1(
   .s(op),
   .i2(addOP_cout),
   .i6(subOP_bout),
+  .i7(subOP_bout),  
   .z(cout));
 endmodule
 
