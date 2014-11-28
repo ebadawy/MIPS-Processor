@@ -2,9 +2,9 @@
 
 module test;
 
-  reg  signed [7:0] a, b;
+  reg  signed [31:0] a, b;
   reg  [3:0] op;
-  wire signed [7:0] z;
+  wire signed [31:0] z;
 
   alu a0 (
     .op(op),
@@ -13,7 +13,7 @@ module test;
     .z(z));
   
   initial begin
-    $monitor ($time, ": a=%d\tb=%d\top=%d\tz=%b", a, b, op, z);  
+    $monitor ($time, ": a=%0d\tb=%0d\top=%d\tz=%0d", a, b, op, z);  
     #5 a = 21; b = 3; op = 0;  
     #5 a = 2; b = 5; op = 1;  
     #5 a = 5; b = -4; op = 2;  
