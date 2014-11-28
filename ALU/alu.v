@@ -49,4 +49,9 @@ one_bit_alu alu29 (.op(op), .r(z[29]), .a(a[29]), .b(b[29]), .cin(carry[28]), .c
 one_bit_alu alu30 (.op(op), .r(z[30]), .a(a[30]), .b(b[30]), .cin(carry[29]), .cout(carry[30]), .less(1'b0));
 one_bit_alu alu31 (.op(op), .r(z[31]), .a(a[31]), .b(b[31]), .cin(carry[30]), .set (set      ), .less(1'b0));
 
+nor (zero, z[0 ], z[1 ], z[2 ], z[3 ], z[4 ], z[5 ], z[6 ], z[7 ], z[8 ], z[9 ],
+           z[10], z[11], z[12], z[13], z[14], z[15], z[16], z[17], z[18], z[19],
+           z[20], z[21], z[22], z[23], z[24], z[25], z[26], z[27], z[28], z[29], 
+           z[30], z[31]);
+
 endmodule
