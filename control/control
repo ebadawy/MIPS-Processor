@@ -1,0 +1,121 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0xa7d630 .scope module, "control" "control" 2 1;
+ .timescale 0 0;
+L_0xaa3490 .functor NOT 1, L_0xaa4de0, C4<0>, C4<0>, C4<0>;
+L_0xaa4b00 .functor NOT 1, L_0xaa4ee0, C4<0>, C4<0>, C4<0>;
+L_0xaa5020 .functor NOT 1, L_0xaa5080, C4<0>, C4<0>, C4<0>;
+L_0xaa5170 .functor NOT 1, L_0xaa5230, C4<0>, C4<0>, C4<0>;
+L_0xaa53b0 .functor NOT 1, L_0xaa5470, C4<0>, C4<0>, C4<0>;
+L_0xaa5510 .functor NOT 1, L_0xaa55a0, C4<0>, C4<0>, C4<0>;
+L_0xaa5770/0/0 .functor AND 1, L_0xaa5510, L_0xaa53b0, L_0xaa5170, L_0xaa59f0;
+L_0xaa5770/0/4 .functor AND 1, L_0xaa4b00, L_0xaa3490, C4<1>, C4<1>;
+L_0xaa5770 .functor AND 1, L_0xaa5770/0/0, L_0xaa5770/0/4, C4<1>, C4<1>;
+L_0xaa5c20/0/0 .functor AND 1, L_0xaa5510, L_0xaa53b0, L_0xaa5170, L_0xaa5020;
+L_0xaa5c20/0/4 .functor AND 1, L_0xaa4b00, L_0xaa3490, C4<1>, C4<1>;
+L_0xaa5c20 .functor AND 1, L_0xaa5c20/0/0, L_0xaa5c20/0/4, C4<1>, C4<1>;
+L_0xaa5d70/0/0 .functor AND 1, L_0xaa5510, L_0xaa53b0, L_0xaa5170, L_0xaa5020;
+L_0xaa5d70/0/4 .functor AND 1, L_0xaa4b00, L_0xaa3490, C4<1>, C4<1>;
+L_0xaa5d70 .functor AND 1, L_0xaa5d70/0/0, L_0xaa5d70/0/4, C4<1>, C4<1>;
+L_0xaa60a0/0/0 .functor AND 1, L_0xaa61a0, L_0xaa53b0, L_0xaa5170, L_0xaa6350;
+L_0xaa60a0/0/4 .functor AND 1, L_0xaa63f0, L_0xaa6490, C4<1>, C4<1>;
+L_0xaa60a0 .functor AND 1, L_0xaa60a0/0/0, L_0xaa60a0/0/4, C4<1>, C4<1>;
+L_0xaa6530/0/0 .functor AND 1, L_0xaa6660, L_0xaa53b0, L_0xaa5170, L_0xaa5020;
+L_0xaa6530/0/4 .functor AND 1, L_0xaa6780, L_0xaa6820, C4<1>, C4<1>;
+L_0xaa6530 .functor AND 1, L_0xaa6530/0/0, L_0xaa6530/0/4, C4<1>, C4<1>;
+L_0xaa6950/0/0 .functor AND 1, L_0xaa69f0, L_0xaa53b0, L_0xaa5170, L_0xaa5020;
+L_0xaa6950/0/4 .functor AND 1, L_0xaa6a90, L_0xaa6d90, C4<1>, C4<1>;
+L_0xaa6950 .functor AND 1, L_0xaa6950/0/0, L_0xaa6950/0/4, C4<1>, C4<1>;
+L_0xaa6140/0/0 .functor AND 1, L_0xaa6f40, L_0xaa53b0, L_0xaa6240, L_0xaa5020;
+L_0xaa6140/0/4 .functor AND 1, L_0xaa7090, L_0xaa6fe0, C4<1>, C4<1>;
+L_0xaa6140 .functor AND 1, L_0xaa6140/0/0, L_0xaa6140/0/4, C4<1>, C4<1>;
+L_0xaa7290/0/0 .functor AND 1, L_0xaa5510, L_0xaa53b0, L_0xaa5170, L_0xaa7400;
+L_0xaa7290/0/4 .functor AND 1, L_0xaa4b00, L_0xaa3490, C4<1>, C4<1>;
+L_0xaa7290 .functor AND 1, L_0xaa7290/0/0, L_0xaa7290/0/4, C4<1>, C4<1>;
+L_0xaa7180/0/0 .functor AND 1, C4<z>, L_0xaa53b0, L_0xaa5170, L_0xaa7570;
+L_0xaa7180/0/4 .functor AND 1, L_0xaa7610, L_0xaa74a0, C4<1>, C4<1>;
+L_0xaa7180 .functor AND 1, L_0xaa7180/0/0, L_0xaa7180/0/4, C4<1>, C4<1>;
+L_0xaa7830 .functor OR 1, L_0xaa7180, L_0xaa7970, C4<0>, C4<0>;
+v0xa7ccc0_0 .net *"_s11", 0 0, L_0xaa5230; 1 drivers
+v0xaa2e70_0 .net *"_s14", 0 0, L_0xaa5470; 1 drivers
+v0xaa2f10_0 .net *"_s17", 0 0, L_0xaa55a0; 1 drivers
+v0xaa2fb0_0 .net *"_s19", 0 0, L_0xaa5770; 1 drivers
+v0xaa3060_0 .net *"_s2", 0 0, L_0xaa4de0; 1 drivers
+v0xaa3100_0 .net *"_s22", 0 0, L_0xaa59f0; 1 drivers
+v0xaa31e0_0 .net *"_s24", 0 0, L_0xaa5c20; 1 drivers
+v0xaa3280_0 .net *"_s29", 0 0, L_0xaa61a0; 1 drivers
+v0xaa3370_0 .net *"_s31", 0 0, L_0xaa6350; 1 drivers
+v0xaa3410_0 .net *"_s33", 0 0, L_0xaa63f0; 1 drivers
+v0xaa3510_0 .net *"_s35", 0 0, L_0xaa6490; 1 drivers
+v0xaa35b0_0 .net *"_s38", 0 0, L_0xaa6660; 1 drivers
+v0xaa36c0_0 .net *"_s40", 0 0, L_0xaa6780; 1 drivers
+v0xaa3760_0 .net *"_s42", 0 0, L_0xaa6820; 1 drivers
+v0xaa3880_0 .net *"_s45", 0 0, L_0xaa69f0; 1 drivers
+v0xaa3920_0 .net *"_s47", 0 0, L_0xaa6a90; 1 drivers
+v0xaa37e0_0 .net *"_s49", 0 0, L_0xaa6d90; 1 drivers
+v0xaa3a70_0 .net *"_s5", 0 0, L_0xaa4ee0; 1 drivers
+v0xaa3b90_0 .net *"_s52", 0 0, L_0xaa6f40; 1 drivers
+v0xaa3c10_0 .net *"_s54", 0 0, L_0xaa6240; 1 drivers
+v0xaa3af0_0 .net *"_s56", 0 0, L_0xaa7090; 1 drivers
+v0xaa3d40_0 .net *"_s58", 0 0, L_0xaa6fe0; 1 drivers
+v0xaa3c90_0 .net *"_s61", 0 0, L_0xaa7400; 1 drivers
+v0xaa3e80_0 .net *"_s64", 0 0, L_0xaa7570; 1 drivers
+v0xaa3de0_0 .net *"_s66", 0 0, L_0xaa7610; 1 drivers
+v0xaa3fd0_0 .net *"_s68", 0 0, L_0xaa74a0; 1 drivers
+v0xaa3f20_0 .net *"_s71", 0 0, L_0xaa7970; 1 drivers
+v0xaa4130_0 .net *"_s8", 0 0, L_0xaa5080; 1 drivers
+v0xaa4070_0 .net "aluSrc", 0 0, L_0xaa60a0; 1 drivers
+RS_0x7f3c64f9d588 .resolv tri, L_0xaa56d0, L_0xaa5b30, C4<zz>, C4<zz>;
+v0xaa42a0_0 .net8 "alu_op", 1 0, RS_0x7f3c64f9d588; 2 drivers
+v0xaa41b0_0 .net "branch", 0 0, L_0xaa7290; 1 drivers
+v0xaa4420_0 .net "int0", 0 0, L_0xaa7180; 1 drivers
+v0xaa4320_0 .net "memRead", 0 0, L_0xaa6950; 1 drivers
+v0xaa45b0_0 .net "memToReg", 0 0, L_0xaa6530; 1 drivers
+v0xaa44a0_0 .net "memWrite", 0 0, L_0xaa6140; 1 drivers
+v0xaa4750_0 .net "op", 5 0, C4<zzzzzz>; 0 drivers
+v0xaa4630_0 .net "op0_bar", 0 0, L_0xaa3490; 1 drivers
+v0xaa46d0_0 .net "op1_bar", 0 0, L_0xaa4b00; 1 drivers
+v0xaa4910_0 .net "op2_bar", 0 0, L_0xaa5020; 1 drivers
+v0xaa4990_0 .net "op3_bar", 0 0, L_0xaa5170; 1 drivers
+v0xaa47d0_0 .net "op4_bar", 0 0, L_0xaa53b0; 1 drivers
+v0xaa4870_0 .net "op5_bar", 0 0, L_0xaa5510; 1 drivers
+v0xaa4b70_0 .net "op_bar", 0 0, C4<z>; 0 drivers
+v0xaa4bf0_0 .net "regDst", 0 0, L_0xaa5d70; 1 drivers
+v0xaa4a10_0 .net "regWrite", 0 0, L_0xaa7830; 1 drivers
+L_0xaa4de0 .part C4<zzzzzz>, 0, 1;
+L_0xaa4ee0 .part C4<zzzzzz>, 1, 1;
+L_0xaa5080 .part C4<zzzzzz>, 2, 1;
+L_0xaa5230 .part C4<zzzzzz>, 3, 1;
+L_0xaa5470 .part C4<zzzzzz>, 4, 1;
+L_0xaa55a0 .part C4<zzzzzz>, 5, 1;
+L_0xaa56d0 .part/pv L_0xaa5770, 0, 1, 2;
+L_0xaa59f0 .part C4<zzzzzz>, 2, 1;
+L_0xaa5b30 .part/pv L_0xaa5c20, 1, 1, 2;
+L_0xaa61a0 .part C4<zzzzzz>, 5, 1;
+L_0xaa6350 .part C4<zzzzzz>, 2, 1;
+L_0xaa63f0 .part C4<zzzzzz>, 1, 1;
+L_0xaa6490 .part C4<zzzzzz>, 0, 1;
+L_0xaa6660 .part C4<zzzzzz>, 5, 1;
+L_0xaa6780 .part C4<zzzzzz>, 1, 1;
+L_0xaa6820 .part C4<zzzzzz>, 0, 1;
+L_0xaa69f0 .part C4<zzzzzz>, 5, 1;
+L_0xaa6a90 .part C4<zzzzzz>, 1, 1;
+L_0xaa6d90 .part C4<zzzzzz>, 0, 1;
+L_0xaa6f40 .part C4<zzzzzz>, 5, 1;
+L_0xaa6240 .part C4<zzzzzz>, 3, 1;
+L_0xaa7090 .part C4<zzzzzz>, 1, 1;
+L_0xaa6fe0 .part C4<zzzzzz>, 0, 1;
+L_0xaa7400 .part C4<zzzzzz>, 2, 1;
+L_0xaa7570 .part C4<zzzzzz>, 2, 1;
+L_0xaa7610 .part C4<zzzzzz>, 1, 1;
+L_0xaa74a0 .part C4<zzzzzz>, 0, 1;
+L_0xaa7970 .part RS_0x7f3c64f9d588, 1, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "control.v";
