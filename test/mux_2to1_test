@@ -1,0 +1,48 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0xa73fc0 .scope module, "test" "test" 2 3;
+ .timescale 0 0;
+v0xa86190_0 .var "i0", 0 0;
+v0xa86230_0 .var "i1", 0 0;
+v0xa862e0_0 .var "s", 0 0;
+v0xa86390_0 .net "z", 0 0, L_0xa86700; 1 drivers
+S_0xa740b0 .scope module, "mux" "mux_2to1" 2 8, 3 1, S_0xa73fc0;
+ .timescale 0 0;
+L_0xa86470 .functor NOT 1, v0xa862e0_0, C4<0>, C4<0>, C4<0>;
+L_0xa86550 .functor AND 1, v0xa86190_0, L_0xa86470, C4<1>, C4<1>;
+L_0xa86650 .functor AND 1, v0xa86230_0, v0xa862e0_0, C4<1>, C4<1>;
+L_0xa86700 .functor OR 1, L_0xa86550, L_0xa86650, C4<0>, C4<0>;
+v0xa75520_0 .net "i0", 0 0, v0xa86190_0; 1 drivers
+v0xa85d80_0 .net "i1", 0 0, v0xa86230_0; 1 drivers
+v0xa85e20_0 .net "int0", 0 0, L_0xa86550; 1 drivers
+v0xa85ec0_0 .net "int1", 0 0, L_0xa86650; 1 drivers
+v0xa85f70_0 .net "s", 0 0, v0xa862e0_0; 1 drivers
+v0xa86010_0 .net "s_bar", 0 0, L_0xa86470; 1 drivers
+v0xa860f0_0 .alias "z", 0 0, v0xa86390_0;
+    .scope S_0xa73fc0;
+T_0 ;
+    %vpi_call 2 15 "$monitor", $time, ": %b  %b  | %b | %b", v0xa86230_0, v0xa86190_0, v0xa862e0_0, v0xa86390_0;
+    %delay 5, 0;
+    %set/v v0xa86230_0, 0, 1;
+    %set/v v0xa86190_0, 0, 1;
+    %set/v v0xa862e0_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0xa86230_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0xa86190_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0xa86230_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0xa862e0_0, 1, 1;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux_2to1_test.v";
+    "./../lib/mux_2to1.v";
