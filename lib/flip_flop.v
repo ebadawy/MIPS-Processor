@@ -12,8 +12,8 @@ mux_2to1 mux(
     .i1(d),
     .s(we));
 
-nand (int0, ff_input, clk);
-nand (int1, int0    , clk);
+nand (int0, ff_input, ~clk);
+nand (int1, int0    , ~clk);
 
 nand (q    , int0, q_bar);
 nand (q_bar, int1, q    );

@@ -1,0 +1,17 @@
+# read design 
+
+#read_verilog ../mem/im.v
+read_verilog ../control/control2.v
+# elaborate design hierarchy
+hierarchy 
+#-check -top alu -libdir ../ALU -libdir ../lib 
+
+# the high-level stuff
+proc; opt; fsm; opt; memory; opt
+
+# mapping to internal cell library
+techmap; opt
+
+# write synthesized design
+write_verilog synth.v
+show -format ps -viewer gv

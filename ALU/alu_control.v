@@ -1,5 +1,3 @@
-`include "../lib/mux_2to1.v"
-
 module alu_control (
   input [5:0] funct,
   input [1:0] alu_op,

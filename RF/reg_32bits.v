@@ -4,7 +4,7 @@ module reg_32bits (
   input [31:0] d,
   input we, clk,
   output [31:0] q);
-
+ 
   d_flip_flop dff0 (.q(q[0 ]), .d(d[0 ]), .we(we), .clk(clk));
   d_flip_flop dff1 (.q(q[1 ]), .d(d[1 ]), .we(we), .clk(clk));
   d_flip_flop dff2 (.q(q[2 ]), .d(d[2 ]), .we(we), .clk(clk));
