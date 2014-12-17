@@ -1,10 +1,9 @@
 # read design 
 
 #read_verilog ../CPU/cpu.v
-#read_verilog ../ALU/alu.v
-#read_verilog ../mem/im.v
-read_verilog ../RF/reg_file.v
+read_verilog ../control/control.v
 #read_verilog ../control/control2.v
+#read_verilog ../mem/im.v
 # elaborate design hierarchy
 hierarchy 
 #-check -top alu -libdir ../ALU -libdir ../lib 
@@ -16,5 +15,5 @@ proc; opt; fsm; opt; memory; opt
 techmap; opt
 
 # write synthesized design
-write_verilog synth.v
+write_verilog synth2.v
 show -format ps -viewer gv
