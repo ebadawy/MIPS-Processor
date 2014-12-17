@@ -31,9 +31,9 @@ module jump_addr(
   buf (j_addr[25] ,inst[23]);
   buf (j_addr[26] ,inst[24]);
   buf (j_addr[27] ,inst[25]);
-  buf (j_addr[28] ,pc  [0 ]);
-  buf (j_addr[29] ,pc  [1 ]);
-  buf (j_addr[30] ,pc  [2 ]);
-  buf (j_addr[31] ,pc  [3 ]);
+  buf (j_addr[28] ,pc_4[0 ]);
+  buf (j_addr[29] ,pc_4[1 ]);
+  buf (j_addr[30] ,pc_4[2 ]);
+  buf (j_addr[31] ,pc_4[3 ]);
 
 endmodule
