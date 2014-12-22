@@ -14,6 +14,14 @@ module im (
     parameter path = "../program/r_type.txt";
   `elsif I_TYPE
     parameter path = "../program/i_type.txt";
+  `elsif BRANCH
+    parameter path = "../program/branch.txt";
+ `elsif BRANCHN
+    parameter path = "../program/branchn.txt";
+  `elsif JUMP
+    parameter path = "../program/jump.txt";
+  `elsif JAL
+    parameter path = "../program/jal.txt";
   `else
     parameter path = "../program/test.txt";
   `endif 
@@ -28,9 +36,10 @@ module im (
     regVals_begin = 30+`CODE_SIZE+1;
     regVals_end   = 30+`CODE_SIZE+32;
   */
-    $readmemh(initRegisters, mem, 0  , 30 );
-    $readmemh(path         , mem, 31 , `MEM_SIZE-33);
-    $readmemh(regVals      , mem, `MEM_SIZE-32, `MEM_SIZE-1);
+    $readmemh(path, mem, 1, `MEM_SIZE-33 );
+   // $readmemh(initRegisters, mem, 0  , 30 );
+   // $readmemh(path         , mem, 31 , `MEM_SIZE-33);
+   // $readmemh(regVals      , mem, `MEM_SIZE-32, `MEM_SIZE-1);
   end
   assign data = mem[addr];
  
