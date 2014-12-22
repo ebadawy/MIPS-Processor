@@ -1,7 +1,7 @@
 module control (
     input [5:0] op,
     output [2:0] alu_op,
-    output regDst, aluSrc, memToReg, regWrite,
+    output regDst0, regDst1, aluSrc, memToReg0, memToReg1, regWrite,
     output memRead, memWrite, branch, branch_ne, jump
   );
 
@@ -38,10 +38,12 @@ module control (
     endcase
   end
 
-  assign regDst = r_format & (~x_found);
+  assign regDst0 = r_format & (~x_found);
+  assign regDst1 = jal & (~x_found);
   assign aluSrc = (lw | sw | andi | ori | addi) & (~x_found);
-  assign memToReg = lw & (~x_found);
-  assign regWrite = (r_format | lw | andi | ori | addi) & (~x_found);
+  assign memToReg0 = lw & (~x_found);
+  assign memToReg1 = jal & (~x_found);
+  assign regWrite = (r_format | lw | andi | ori | addi | jal) & (~x_found);
   assign memRead = lw & (~x_found);
   assign memWrite = sw & (~x_found); 
   assign branch = (beq | bne) & (~x_found);
