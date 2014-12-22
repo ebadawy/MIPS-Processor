@@ -1,8 +1,10 @@
 `include "../mem/im.v"
-`include "../RF/reg_file.v"
+`include "../RF/reg_file2.v"
 `include "../ALU/alu.v"
-`include "../lib/mux5bit_2to1.v"
+`include "../lib/mux5bit_2to1_2.v"
+`include "../lib/mux32bit_4to1.v"
 `include "../lib/mux32bit_2to1.v"
+`include "../lib/mux32bit_2to1_2.v"
 `include "../lib/sign_extend.v"
 `include "../control/control2.v"
 `include "../ALU/alu_control2.v"
@@ -11,17 +13,17 @@
 `include "../lib/jump_addr.v"
 
 module cpu(input clk,
-           output [31:0] alu_output, data);
+           output [31:0] alu_output, data, nxt_pc);
 
   reg [31:0] pc;
   wire [31:0] readData1, readData2, b;
   wire regDest0, regDst1, regWrite, aluSrc, zero, memToReg0, memToReg1; 
   wire memRead, memWrite, branch, branch_ne, s_branch, jump;
-  wire [31:0] sExtended, alu_output, memData, writeData, j_addr, mux3_output;
+  wire [31:0] sExtended, alu_output, memData, writeData, j_addr, mux3_output, mux4_output;
   wire [3:0] alu_ctrl;
   wire [2:0] alu_op;
   wire [4:0] writeReg;
-  wire [31:0] fa1_output, ex_shifted, nxt_pc, pc_4;
+  wire [31:0] fa1_output, ex_shifted, pc_4;
   initial pc <= 32'd0;
   im i_mem(.clk(clk),
            .data(data),
@@ -73,7 +75,9 @@ module cpu(input clk,
   and (int0, branch, zero);
   and (int1, branch_ne, ~zero);
   or (s_branch, int0, int1);
-  
+  wire jr;
+  and and1(jr , ~data[5], ~data[4], data[3], ~data[2], ~data[1], ~data[0]); 
+  //always @(*) jr =  ~data[26] & ~data[27] & data[28] & ~data[29] & ~data[30] & ~data[31]; 
   jump_addr ja(.inst(data[25:0]), .pc_4(pc_4[31:28]), .j_addr(j_addr));
 
   //mux32bit_2to1 mux3(.i0(pc_4), .i1(fa1_output), .s(s_branch), .z(nxt_pc));
