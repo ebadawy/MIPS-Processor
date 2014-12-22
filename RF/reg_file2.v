@@ -1,7 +1,3 @@
-`include "../RF/reg_32bits.v"
-`include "../lib/mux32bits_32to1.v"
-`include "../lib/dec_5to32.v"
-
 module reg_file (
   input  [4:0]  readReg1, readReg2, writeReg,
   input  [31:0] writeData,
