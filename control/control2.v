@@ -49,7 +49,7 @@ module control (
   assign branch = (beq | bne) & (~x_found);
   assign branch_ne = (bne) & (~x_found);
   assign jump = (j | jal) & (~x_found);
-  assign alu_op[0] = (beq | andi) & (~x_found);
+  assign alu_op[0] = (beq | bne | andi) & (~x_found);
   assign alu_op[1] = (r_format | andi) & (~x_found);
   assign alu_op[2] = ori & (~x_found);
   
