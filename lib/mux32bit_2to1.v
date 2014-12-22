@@ -1,3 +1,5 @@
+`include "../lib/mux_2to1.v"
+
 module mux32bit_2to1(input [31:0] i0, i1,
                     input s,
                     output [31:0] z);
