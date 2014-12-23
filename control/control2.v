@@ -46,7 +46,7 @@ module control (
   assign regWrite = (r_format | lw | andi | ori | addi | jal) & (~x_found);
   assign memRead = lw & (~x_found);
   assign memWrite = sw & (~x_found); 
-  assign branch = (beq | bne) & (~x_found);
+  assign branch = (beq) & (~x_found);
   assign branch_ne = (bne) & (~x_found);
   assign jump = (j | jal) & (~x_found);
   assign alu_op[0] = (beq | bne | andi) & (~x_found);
