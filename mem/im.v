@@ -22,6 +22,8 @@ module im (
     parameter path = "../program/jump.txt";
   `elsif JAL
     parameter path = "../program/jal.txt";
+  `elsif LOOP
+    parameter path = "../program/loop.txt";
   `else
     parameter path = "../program/test.txt";
   `endif 
