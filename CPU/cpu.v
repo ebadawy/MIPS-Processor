@@ -76,7 +76,8 @@ module cpu(input clk,
   and (int1, branch_ne, ~zero);
   or (s_branch, int0, int1);
   wire jr;
-  and and1(jr , ~data[5], ~data[4], data[3], ~data[2], ~data[1], ~data[0]); 
+  and and1(jr , ~data[5], ~data[4], data[3], ~data[2], ~data[1], ~data[0]
+              , ~data[26], ~data[27],~data[28], ~data[29], ~data[30], ~data[31] ); 
   //always @(*) jr =  ~data[26] & ~data[27] & data[28] & ~data[29] & ~data[30] & ~data[31]; 
   jump_addr ja(.inst(data[25:0]), .pc_4(pc_4[31:28]), .j_addr(j_addr));
 
