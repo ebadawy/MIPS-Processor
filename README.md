@@ -105,7 +105,7 @@ You should have output like this
 For instructions test it is located under program sub-directory, To run them change directory to `test` and run this
 cmd
 
-    $ iverlog -o cpu_test cpu_test.v -DR_TYPE
+    $ iverilog -o cpu_test cpu_test.v -DR_TYPE
 
 This will will compile the cpu_test test bench and load the r_type.txt from program directory, The `-DR_TYPE` is 
 the reason for loading this file, Possible values that it could take `-DR_TYPE` for R type instruction, `-DI_TYPE` for
